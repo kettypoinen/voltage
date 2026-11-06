@@ -1,0 +1,307 @@
+<title>Ketty Poinen, Built with Claude</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: profile header, one framed film carousel with arrows on its centre line, then a grid of smaller builds. Single dark look over a Figma-style dot grid. */
+:root{
+  color-scheme:dark;
+  --bg:#0A0F22;--bg2:#090D1D;--fg:#E7ECF7;--bright:#FFFFFF;--soft:#9AA6C6;--label:#9FB2DF;
+  --panel:rgba(17,24,50,.72);--line:rgba(120,150,230,.26);--line-soft:rgba(255,255,255,.09);--pill:rgba(46,68,130,.28);
+  --blue:#6AA4F8;--violet:#A855F7;--grad:linear-gradient(135deg,#4D86F0,#7C5CF0);--ink:#0E1A30;--li:#0A66C2;
+  --display:'Space Grotesk',system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{min-height:100vh;color:var(--fg);font:400 16.5px/1.55 var(--body);background:radial-gradient(1100px 700px at 82% -8%,rgba(120,90,220,.2),transparent 60%),radial-gradient(1000px 640px at 12% 4%,rgba(60,110,220,.18),transparent 58%),linear-gradient(#0B1128 0%,var(--bg) 55%,var(--bg2) 100%);background-attachment:fixed}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(circle,rgba(170,188,235,.34) 1.15px,transparent 1.5px);background-size:22px 22px;-webkit-mask-image:radial-gradient(1600px 1300px at 50% 30%,#000 78%,transparent 100%);mask-image:radial-gradient(1600px 1300px at 50% 30%,#000 78%,transparent 100%)}
+.wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding-block:20px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:44px}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,4.2vw,46px);line-height:1.06;font-weight:600;letter-spacing:-.5px;color:#EAF0FB;max-width:22em}
+h2{font-size:clamp(25px,3vw,32px);line-height:1.1;font-weight:600;color:#EAF0FB}
+h3{font-size:18px;line-height:1.2;font-weight:600;color:#EAF0FB}
+p{margin:0}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:max(8px,env(safe-area-inset-top,0px));z-index:21;background:#0B1128}
+.profile{position:sticky;top:max(8px,env(safe-area-inset-top,0px));z-index:20;display:flex;align-items:center;gap:16px;padding:10px 16px;background:rgba(13,19,44,.94);border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(10px);box-shadow:0 10px 26px rgba(4,7,20,.5)}
+.avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;padding:3px;background:var(--grad);flex:none}
+.who{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:1px}
+.who .name{font:600 20px/1.2 var(--display);color:var(--bright)}
+.who .line{font-size:13.5px;line-height:1.35;color:#C2CBE4}
+.linkedin{display:inline-flex;align-items:center;gap:9px;padding:12px 18px;min-height:44px;border-radius:10px;background:var(--li);border:1px solid var(--li);color:#fff;font:700 14.5px/1 var(--body);text-decoration:none;flex:none}
+.linkedin:hover{background:#0C74DB}
+
+.intro{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 15px;border-radius:999px;border:1px solid var(--line);background:rgba(60,90,170,.14);font-size:12.5px;line-height:1.3;letter-spacing:2px;text-transform:uppercase;color:var(--label);font-weight:600}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px 2px rgba(106,164,248,.7);flex:none}
+.intro p.lead{max-width:44em;color:#C2CBE4;font-size:clamp(16px,1.8vw,18px)}
+
+.car{display:flex;flex-direction:column;gap:14px}
+.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.tab{font:500 14px/1.2 var(--body);padding:10px 16px;min-height:40px;border-radius:999px;border:1px solid var(--line);background:var(--pill);color:#C6D1EA;cursor:pointer}
+.tab .num{font:600 12px/1 var(--display);color:#9FB2DF;margin-right:7px;letter-spacing:.5px}
+.tab[aria-selected="true"] .num{color:#fff}
+.proj{font:700 11.5px/1.2 var(--body);letter-spacing:1.6px;text-transform:uppercase;color:#BCD0FF;flex:none}
+.vmark{height:15px;width:auto;margin:0 -3px 0 -2px;flex:none}
+.tab:hover{color:#fff;border-color:rgba(140,160,240,.6)}
+.tab[aria-selected="true"]{background:var(--grad);border-color:rgba(140,160,240,.5);color:#fff;font-weight:600}
+.window{background:var(--panel);border:1px solid var(--line);border-radius:18px;position:relative}
+.bar{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--line-soft);min-width:0}
+.dots{display:flex;gap:7px;flex:none}
+.dots i{width:12px;height:12px;border-radius:50%}
+.bar b{font:600 15px/1.25 var(--display);color:#CFD8EE;min-width:0}
+.badge{margin-left:auto;font:600 11.5px/1.2 var(--body);letter-spacing:1px;text-transform:uppercase;color:#BCD0FF;padding:5px 10px;border:1px solid var(--line);background:rgba(90,120,240,.14);border-radius:7px;flex:none}
+.media{position:relative}
+.media video{display:block;width:100%;aspect-ratio:16/9;background:var(--ink);border-radius:0 0 17px 17px;max-width:100%}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:1px solid rgba(140,160,240,.6);background:var(--grad);color:#fff;font:600 22px/1 var(--display);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 24px rgba(30,40,110,.55);z-index:2}
+.arrow:hover{filter:brightness(1.18)}
+.arrow.prev{left:-25px}
+.arrow.next{right:-25px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.pill{padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--pill);font-size:13.5px;line-height:1.25;font-weight:500;color:#C6D1EA}
+.status{text-align:center;color:var(--soft);font-size:14.5px;max-width:52em;align-self:center}
+.status a{font-weight:600;white-space:nowrap}
+.versus{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:14px;margin-top:6px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.panel.sol{background:linear-gradient(135deg,rgba(77,134,240,.24),rgba(124,92,240,.24));border-color:rgba(140,160,240,.5)}
+.kicker{font:700 12.5px/1.2 var(--body);letter-spacing:1.8px;text-transform:uppercase;color:var(--label)}
+.sol .kicker{color:#BCD0FF}
+.panel ul{margin:0;padding:0 0 0 18px;display:flex;flex-direction:column;gap:6px}
+.holds{color:#C2CBE4;font-size:15.5px;max-width:58em;align-self:center;text-align:center}
+.holds b{color:#fff;font-weight:700}
+
+.sec{display:flex;flex-direction:column;gap:18px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.shot{position:relative;aspect-ratio:16/10;background:#fff;border-bottom:1px solid var(--line-soft)}
+.shot.dark{background:#0B0D12}
+.shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.shot.fit img{object-fit:contain;object-position:center;padding:8px}
+.shot span{position:absolute;left:10px;bottom:10px;font:600 11.5px/1.2 var(--body);color:#E7ECF7;background:rgba(10,15,34,.86);padding:5px 8px;border-radius:6px}
+.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:9px;flex:1}
+.body p{font-size:14.5px;line-height:1.45;color:#C2CBE4}
+.body .pills{justify-content:flex-start;gap:6px;margin-top:auto;padding-top:4px}
+.body .pill{font-size:12px;padding:5px 9px}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.stat-col{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.stat-col dl{margin:0;display:grid;grid-template-columns:clamp(82px,9.5vw,108px) minmax(0,1fr);gap:12px 16px;align-items:baseline}
+.stat-col dt{font:600 clamp(28px,3.4vw,36px)/1.1 var(--display);padding-left:2px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;text-align:right;font-variant-numeric:tabular-nums}
+.stat-col dd{margin:0;font-size:15px;line-height:1.4;color:#C2CBE4}
+.models{display:flex;flex-wrap:wrap;gap:8px}
+.models .pill b{color:#fff;font-weight:700}
+.asof{color:var(--soft);font-weight:600;letter-spacing:1px;text-transform:none}
+.foot{border-top:1px solid var(--line);padding-top:24px;text-align:center}
+.foot p{font:600 clamp(16px,1.8vw,18px)/1.45 var(--body);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.max{position:absolute;right:10px;top:10px;width:38px;height:38px;border-radius:9px;border:1px solid rgba(140,160,240,.6);background:rgba(10,15,34,.86);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.max:hover{background:#4D86F0}
+.shot img{cursor:zoom-in}
+html:has(dialog[open]){overflow:hidden}
+dialog{width:min(1240px,calc(100vw - 32px));max-height:calc(100dvh - 24px);padding:0;border:1px solid var(--line);border-radius:18px;background:#111832;color:var(--fg);overflow:auto}
+dialog::backdrop{background:rgba(5,8,20,.82);backdrop-filter:blur(6px)}
+.lb-bar{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line-soft)}
+.lb-bar h3{min-width:0}
+.lb-bar .badge{margin-left:auto}
+.lb-close{width:38px;height:38px;border-radius:9px;border:1px solid var(--line);background:var(--pill);color:#fff;font:600 18px/1 var(--body);cursor:pointer;flex:none}
+.lb-close:hover{background:#4D86F0}
+.lb-media{position:relative;background:#fff}
+.lb-media.dark{background:#0B0D12}
+.lb-media img{display:block;width:100%;height:auto;max-height:68dvh;object-fit:contain}
+.lb-media .arrow.prev{left:12px}
+.lb-media .arrow.next{right:12px}
+.lb-text{padding:14px 18px 18px;display:flex;flex-direction:column;gap:10px}
+.lb-text p{color:#C2CBE4;font-size:15.5px;max-width:64em}
+.lb-text .pills{justify-content:flex-start}
+@media (max-width:1250px){.arrow.prev{left:8px}.arrow.next{right:8px}.arrow{width:44px;height:44px}}
+@media (max-width:860px){.versus,.stats{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .arrow{width:34px;height:34px;font-size:17px}
+  .arrow.prev{left:-12px}.arrow.next{right:-12px}
+  .badge{display:none}
+  .lb-close{margin-left:auto}
+  .profile{gap:10px;padding:8px 10px}
+  .avatar{width:50px;height:50px}
+  .who .name{font-size:17px}
+  .who .line{font-size:12.5px}
+  .linkedin{padding:0;width:44px;justify-content:center}
+  .li-text{display:none}
+  .tabs{justify-content:flex-start}
+  .tab{font-size:13px;padding:9px 12px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="profile">
+    <img class="avatar" src="assets/profile.jpg" alt="Ketty Poinen">
+    <div class="who">
+      <span class="name">Ketty Poinen</span>
+      <span class="line">Based in Mauritius (GMT+4)</span>
+      <span class="line">Fluent in English and French</span>
+    </div>
+    <a class="linkedin" href="https://www.linkedin.com/in/kettypoinen/" target="_blank" rel="noopener noreferrer" aria-label="Ketty Poinen on LinkedIn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" fill-rule="evenodd"/></svg>
+      <span class="li-text">LinkedIn</span>
+    </a>
+  </header>
+
+  <section class="intro">
+    <span class="eyebrow"><i></i>Built with Claude Code for<img class="vmark" src="assets/voltage-mark.png" alt="">Voltage Studios</span>
+    <h1>AI Systems for real workflows</h1>
+    <p class="lead"><em>Not a traditional engineer, yet a workflow builder who learned to ship with AI.</em></p>
+  </section>
+
+  <section class="car" aria-label="Project films">
+    <div class="tabs" id="tabs" role="tablist" aria-label="Choose a project"></div>
+    <div class="window">
+      <div class="bar"><span class="dots" aria-hidden="true"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i></span><span class="proj" id="n-num"></span><b id="n-title"></b><span class="badge" id="n-badge"></span></div>
+      <div class="media">
+        <video id="vid" muted playsinline controls preload="metadata" aria-label="Project film"></video>
+        <button class="arrow prev" id="prev" type="button" aria-label="Previous project">←</button>
+        <button class="arrow next" id="next" type="button" aria-label="Next project">→</button>
+      </div>
+    </div>
+    <div class="pills" id="n-stack" aria-label="Tech stack"></div>
+    <p class="status" id="n-status"></p>
+    <div class="versus">
+      <div class="panel"><span class="kicker">Challenge</span><p id="n-chal"></p></div>
+      <div class="panel sol"><span class="kicker">Solution</span><ul id="n-sol"></ul></div>
+    </div>
+    <p class="holds"><b>Why it holds up.</b> <span id="n-holds"></span></p>
+  </section>
+
+  <section class="sec">
+    <h2>Also built</h2>
+    <div class="grid">
+      <article class="card"><div class="shot"><img src="assets/shots/pos.jpg" alt="Point-of-sale screen with products, keypad, payment panel and an order"><span>App screen, test data</span></div><div class="body"><h3>Print Shop POS</h3><p>A point of sale for a print shop, fine-tuned with Claude Code. Each day’s log exports in one click to a monthly tab in Google Sheets. I fixed a keypad that vanished on Windows browsers and added layout tests: 60 pass across six screen sizes.</p><div class="pills"><span class="pill">React</span><span class="pill">Tailwind CSS</span><span class="pill">Firebase Firestore</span><span class="pill">Google Sheets</span><span class="pill">Google Apps Script</span><span class="pill">Gemini Canvas</span><span class="pill">Playwright</span></div></div></article>
+      <article class="card"><div class="shot"><img src="assets/shots/stickers.jpg" alt="Sticker sheet app with design upload, shape, size and margin controls beside a preview of 24 stickers on an A4 page"><span>Shipped app, sample artwork</span></div><div class="body"><h3>Custom Sticker Sheets tool</h3><p>Upload a design, pick a shape and size, and get a print-ready A4 sheet at true millimetre size. Runs in the browser as one HTML file, with no install. This saves time, as a graphic designer with CorelDraw skills does not need to be involved for custom prints in small volume.</p><div class="pills"><span class="pill">React</span><span class="pill">Vite</span><span class="pill">Tailwind CSS</span><span class="pill">vite-plugin-singlefile</span><span class="pill">Print CSS</span></div></div></article>
+      <article class="card"><div class="shot fit"><img src="assets/shots/hermes-leave.jpg" alt="Flow from a Telegram message through Hermes Agent and a Python script to a JSON ledger, GitHub and a confirmation"><span>Flow diagram</span></div><div class="body"><h3>Hermes as the HR</h3><p>Hermes agent is informed of employee leave via Telegram, by chat or voice, and records the employee’s name, type of leave and date through a Python script, then commits to its Git repo. Hermes can also provide a recap of each employee’s leave record. Records started in January 2026.</p><div class="pills"><span class="pill">Hermes Agent</span><span class="pill">DeepSeek V4 Flash</span><span class="pill">Telegram</span><span class="pill">Python</span><span class="pill">JSON</span><span class="pill">Git</span></div></div></article>
+      <article class="card"><div class="shot dark"><img src="assets/shots/recordsem.jpg" alt="SEM Ledger app with returns, income by year, import buttons, an entry form and holdings"><span>Live app</span></div><div class="body"><h3>Local Stocks Ledger</h3><p>A stock ledger that reads transaction contract-note PDFs and reconciles with monthly statements. It also pulls corporate actions from the official exchange website, such as upcoming dividends or splits. If a statement shows a split hasn’t been entered, it suggests the entry, which adjusts the average entry price so P&amp;L stays right. Widgets adapted from the recently open-sourced OpenBB repo.</p><div class="pills"><span class="pill">Python</span><span class="pill">FastAPI</span><span class="pill">pypdf</span><span class="pill">PyMuPDF</span><span class="pill">Vega-Lite</span><span class="pill">launchd</span></div></div></article>
+      <article class="card"><div class="shot"><img src="assets/shots/ibkr.jpg" alt="Performance dashboard comparing a simulated portfolio with SPY, QQQ and a 60/40 blend"><span>Dashboard demo, simulated data</span></div><div class="body"><h3>Investment Dashboards via MCP</h3><p>v1: Portfolio Monitor sourced investment data via Flex Query reports, processed it in Python and delivered an enriched report to a Gmail inbox. <br>v2: A dedicated Claude Desktop project with custom dashboards, refreshed on demand via the broker’s new MCP. PDF statements extend the data history available via MCP. <br>Add-on: orders can be staged to the live investment platform, ready for the user to approve execution.</p><div class="pills"><span class="pill">IBKR MCP</span><span class="pill">Claude Projects</span><span class="pill">Visualize MCP</span><span class="pill">Chart.js</span><span class="pill">Python</span><span class="pill">GitHub Actions</span></div></div></article>
+      <article class="card"><div class="shot dark fit"><img src="assets/shots/strength-screens.jpg" alt="Four screens from the running app: dashboard with cycle phase and today's workout, set logging, rest timer, and personal records"><span>Running app, test account</span></div><div class="body"><h3>StrengthOS</h3><p>A cycle-aware strength tracker. A short onboarding recommends one of two programs, built from a 37-exercise library. Each workout pre-fills from the last session, with a rest timer, RPE logging and rule-based overload suggestions. A progress page tracks estimated 1RM, volume and PRs, and every session records its cycle phase. A browser test covers the full journey, from sign-up to saved data.</p><div class="pills"><span class="pill">Next.js</span><span class="pill">TypeScript</span><span class="pill">Supabase</span><span class="pill">Prisma</span><span class="pill">Zustand</span><span class="pill">Recharts</span><span class="pill">Playwright</span></div></div></article>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="stats-h">
+    <h2 id="stats-h">By the numbers</h2>
+    <div class="stats">
+      <div class="stat-col">
+        <span class="kicker">Built with Claude Code, on my Mac</span>
+        <dl>
+          <dt>78</dt><dd>project folders since February 2026</dd>
+          <dt>17</dt><dd>Claude Code skills I wrote or adapted, for research, QA and safe installs</dd>
+          <dt>19</dt><dd>projects where my own hooks keep a file map and a log of lessons, so each new Claude Code session starts with context</dd>
+        </dl>
+      </div>
+      <div class="stat-col">
+        <span class="kicker">Running on my VPS</span>
+        <dl>
+          <dt>1,378</dt><dd>Hermes agent sessions since April 2026</dd>
+          <dt>25</dt><dd>scheduled jobs that run unattended, from research digests to health checks</dd>
+          <dt>66</dt><dd>n8n workflows built; 3 are live and run Order Flow</dd>
+          <dt>34</dt><dd>opencode sessions, with Kimi as the code reviewer</dd>
+        </dl>
+      </div>
+    </div>
+    <span class="kicker">A model for each job <span class="asof">· as at 6 November 2026</span></span>
+    <div class="models">
+      <span class="pill"><b>Claude</b> · builds and reviews in Claude Code</span>
+      <span class="pill"><b>DeepSeek V4 Flash</b> · Hermes default, 22,524 calls</span>
+      <span class="pill"><b>GLM-4.5 Flash</b> · 7,618 calls</span>
+      <span class="pill"><b>Gemini</b> · about 860 calls in Hermes</span>
+      <span class="pill"><b>Kimi K2.7 Code</b> · QA reviews in opencode</span>
+    </div>
+  </section>
+  <footer class="foot"><p>Ready to contribute to Voltage projects and pursue CCA-F certification through the partner program.</p></footer>
+</div>
+
+<dialog id="lb" aria-labelledby="lb-title">
+  <div class="lb-bar"><h3 id="lb-title"></h3><span class="badge" id="lb-tag"></span><button class="lb-close" id="lb-close" type="button" aria-label="Close">×</button></div>
+  <div class="lb-media" id="lb-media">
+    <img id="lb-img" alt="">
+    <button class="arrow prev" id="lb-prev" type="button" aria-label="Previous project">←</button>
+    <button class="arrow next" id="lb-next" type="button" aria-label="Next project">→</button>
+  </div>
+  <div class="lb-text"><p id="lb-text"></p><div class="pills" id="lb-pills"></div></div>
+</dialog>
+
+<script>
+const P=[
+ {f:'order-flow',t:'Order Flow',b:'Beta',s:'In beta at a print shop in Mauritius. Built with Claude Code. Classification is rule-based SQL.',
+  c:'A busy print shop receives different types of requests via WhatsApp, in French, English and Kreol. This first step sorts requests by urgency and request type, and records them so the history is available for further automation at a later stage.',
+  x:['A Chrome extension captures messages from WhatsApp Web and sends them to n8n.','A 10-minute sweep keeps each chat on one card, in Postgres.','SQL rules sort new cards into Quote Request, Walk-in or Pick-up, in all three languages.','Staff work from a Kanban board and drag cards through the later stages.'],
+  h:'Rules only touch new cards and never overwrite a stage a person set.',
+  k:['Chrome Extension (MV3)','n8n','Postgres 16','SQL functions','Vanilla JS','Docker Compose','Traefik','Hostinger VPS','here.now']},
+ {f:'tasty-wheel',t:'Agentic Trading',b:'Paper trading',s:'Paper trading only. Built with Claude Code. The narrator runs on an OpenAI-compatible endpoint, not Claude.',l:'https://github.com/pinkBot22/tasty-wheel',
+  c:'The aim of this hackathon was to showcase agentic tools newly released by Alpaca that enable autonomous options trading.',
+  x:['Plain Python screens candidates and applies mechanical entry and exit rules.','A hard-coded risk gate can veto any order: kill switch, daily-loss breaker, position and notional caps.','An LLM narrator reads the journal afterwards and has no code path back to orders.','The Alpaca MCP server is for development only, with its trading scope left out.'],
+  h:'104 tests run on every push. Live dry runs caught a truncated options chain and a $21,000 collateral undercount, both fixed with regression tests before go-live.',
+  k:['Python','Typer','Rich','SQLite','pytest','GitHub Actions','Alpaca CLI','Alpaca MCP','OpenAI-compatible LLM','Telegram Bot API']},
+ {f:'dispute-triage',t:'Dispute Triage',b:'Demo',s:'Portfolio demo, shown in mock mode with 50 synthetic cases.',
+  c:'Demonstrate the type of tooling that could be shipped fast at a payment service provider, for example to assist analysts handling payment disputes.',
+  x:['Separate prompts classify, summarise, extract and resolve each case.','Every response comes back as structured fields with a confidence score.','An insufficient_evidence category stops the model guessing.','One Python backend serves a Gradio triage screen and a Streamlit dashboard.'],
+  h:'Pydantic validates each response, and mock mode lets anyone run the full flow without an API key.',
+  k:['Claude API','OpenAI (switchable)','Python','FastAPI','Pydantic','pandas','SQLite','Gradio','Streamlit','Docker']},
+ {f:'mcp-audit',t:'Binance Agent OS Audit',b:'In progress',s:'Hands-on test with $5 of real funds. Setup through spot trading complete; later phases in progress.',
+  c:'Before an agent can touch money, I need to know what its tools can really do. Documentation and permission labels do not answer that.',
+  x:['Inventoried the 69 tools on the official server and confirmed none can create a withdrawal.','Matched OAuth scopes to the permissions on the issued credentials.','Rehearsed on testnet with an unofficial server, where I found and patched a bug that sent testnet calls to production.','Logged schema gaps and a minimum-notional trap, phase by phase.'],
+  h:'A missing capability is a stronger guarantee than a refused permission, so that is what I test for.',
+  k:['MCP (HTTP and stdio)','OAuth','Python','python-binance','uv','Claude Code']},
+ {f:'inbox-at-scale',t:'Outlook at Scale',b:'Done',s:'Done, with standing rules in place. Personal mailbox, so no real mail is shown.',
+  c:'A mailbox had grown to 18,669 messages and 90% of storage. Bulk clean-up can destroy real mail, and the job was too long for one session.',
+  x:['Used Microsoft Graph through MCP to read, count and bulk-move, and Playwright for Outlook’s sweep rules.','Ranked 11,232 messages by sender to find what was safe to clear.','Marked shared domains such as gmail.com as do-not-sweep, and sent swept mail to a review folder first.','Kept a hand-off file so any new session could carry on.'],
+  h:'Inbox down 79% and storage down to 28%, OneDrive clean-up included.',
+  k:['Microsoft Graph API','ms365 MCP','Playwright CLI','Markdown hand-off','Claude Code']},
+ {f:'harness',t:'Claude Code Harness',b:'Running',s:'Running in every Claude Code session I start.',
+  c:'Each new session starts with no memory of the project, and repeated workflows and token use are easy to lose track of.',
+  x:['A SessionStart hook writes a map of the project’s files.','A SessionEnd hook logs tools used, files edited and tokens to a learnings file and a global ledger.','Repeated workflows ship from a project folder to reusable skills.','MCP servers are scoped per project, and plans live with the project.'],
+  h:'The ledger covers 32 sessions and 7,481 tool calls since July, with 95% of input tokens served from cache.',
+  k:['Claude Code hooks','Skills','CLAUDE.md','Project-scoped MCP','Python','Bash','CSV ledger']}
+];
+const $=id=>document.getElementById(id),vid=$('vid'),tabs=$('tabs');
+const motionOK=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+let i=0,started=false;
+const pill=t=>{const s=document.createElement('span');s.className='pill';s.textContent=t;return s};
+P.forEach((x,n)=>{const b=document.createElement('button');b.className='tab';b.type='button';b.setAttribute('role','tab');const num=document.createElement('span');num.className='num';num.textContent=String(n+1).padStart(2,'0');b.append(num,x.t);b.onclick=()=>show(n,true);tabs.appendChild(b)});
+function show(n,play){
+  i=(n+P.length)%P.length;const x=P[i];
+  vid.poster='assets/poster/'+x.f+'.jpg';vid.src='assets/video/'+x.f+'.mp4';vid.setAttribute('aria-label',x.t+' film');
+  $('n-title').textContent=x.t;$('n-num').textContent='Project '+String(i+1).padStart(2,'0');$('n-badge').textContent=x.b;
+  $('n-stack').replaceChildren(...x.k.map(pill));
+  $('n-status').textContent=x.s;
+  if(x.l){const a=document.createElement('a');a.href=x.l;a.target='_blank';a.rel='noopener noreferrer';a.textContent='View the code ↗';$('n-status').append(' ',a)}
+  $('n-chal').textContent=x.c;
+  $('n-sol').replaceChildren(...x.x.map(t=>{const li=document.createElement('li');li.textContent=t;return li}));
+  $('n-holds').textContent=x.h;
+  [...tabs.children].forEach((b,k)=>b.setAttribute('aria-selected',k===i?'true':'false'));
+  if(play){const p=vid.play();if(p&&p.catch)p.catch(()=>{})}
+}
+$('prev').onclick=()=>show(i-1,true);$('next').onclick=()=>show(i+1,true);
+vid.addEventListener('ended',()=>show(i+1,true));
+document.querySelector('.car').addEventListener('keydown',e=>{if(e.target.tagName==='VIDEO')return;if(e.key==='ArrowRight')show(i+1,true);if(e.key==='ArrowLeft')show(i-1,true)});
+show(0,false);
+const lb=$('lb'),cards=[...document.querySelectorAll('.card')];let c=0;
+function openCard(n){
+  c=(n+cards.length)%cards.length;const el=cards[c],im=el.querySelector('.shot img');
+  $('lb-title').textContent=el.querySelector('h3').textContent;
+  $('lb-tag').textContent=el.querySelector('.shot span').textContent;
+  $('lb-img').src=im.src;$('lb-img').alt=im.alt;
+  $('lb-media').classList.toggle('dark',el.querySelector('.shot').classList.contains('dark'));
+  $('lb-text').textContent=el.querySelector('.body p').textContent;
+  $('lb-pills').replaceChildren(...[...el.querySelectorAll('.pill')].map(p=>pill(p.textContent)));
+  if(!lb.open){vid.pause();lb.showModal()}
+  lb.scrollTop=0;
+}
+cards.forEach((el,n)=>{
+  const shot=el.querySelector('.shot'),b=document.createElement('button'),name=el.querySelector('h3').textContent;
+  b.className='max';b.type='button';b.setAttribute('aria-label','Maximise '+name);
+  b.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7M10 21H3v-7M21 3l-8 8M3 21l8-8"/></svg>';
+  b.onclick=()=>openCard(n);shot.appendChild(b);
+  shot.querySelector('img').onclick=()=>openCard(n);
+});
+$('lb-close').onclick=()=>lb.close();
+$('lb-prev').onclick=()=>openCard(c-1);$('lb-next').onclick=()=>openCard(c+1);
+lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+lb.addEventListener('keydown',e=>{if(e.key==='ArrowRight')openCard(c+1);if(e.key==='ArrowLeft')openCard(c-1)});
+if(motionOK&&'IntersectionObserver'in window){new IntersectionObserver(es=>{if(es[0].isIntersecting){const p=vid.play();if(p&&p.catch)p.catch(()=>{})}else{vid.pause()}},{threshold:.5}).observe(vid)}
+</script>
