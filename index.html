@@ -88,7 +88,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:max(8px,env(safe-ar
 .stat-col dl{margin:0;display:grid;grid-template-columns:clamp(82px,9.5vw,108px) minmax(0,1fr);gap:12px 16px;align-items:baseline}
 .stat-col dt{font:600 clamp(28px,3.4vw,36px)/1.1 var(--display);padding-left:2px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;text-align:right;font-variant-numeric:tabular-nums}
 .stat-col dd{margin:0;font-size:15px;line-height:1.4;color:#C2CBE4}
-.models{display:flex;flex-wrap:wrap;gap:8px}
+.models{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
 .models .pill b{color:#fff;font-weight:700}
 .asof{color:var(--soft);font-weight:600;letter-spacing:1px;text-transform:none}
 .foot{border-top:1px solid var(--line);padding-top:24px;text-align:center}
@@ -113,6 +113,7 @@ dialog::backdrop{background:rgba(5,8,20,.82);backdrop-filter:blur(6px)}
 .lb-text p{color:#C2CBE4;font-size:15.5px;max-width:64em}
 .lb-text .pills{justify-content:flex-start}
 @media (min-width:901px){.wrap{padding-inline:clamp(48px,7vw,110px)}}
+@media (min-width:1100px){.wrap>.profile,.car>.tabs,.car>.window,.car>#n-stack{margin-inline:calc(-1 * clamp(0px,min(10.5vw - 45px,7vw - 48px + max(0px,(100vw - 1180px) / 2)),136px))}.tabs,#n-stack{flex-wrap:nowrap;gap:6px}.tab{padding:9px 11px;font-size:13px;white-space:nowrap}.tab .num{margin-right:5px}#n-stack .pill{white-space:nowrap;font-size:12.5px;padding:6px 10px}}
 @media (max-width:900px){.arrow.prev{left:8px}.arrow.next{right:8px}.arrow{width:44px;height:44px}}
 @media (max-width:860px){.versus,.stats{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){
@@ -229,7 +230,7 @@ dialog::backdrop{background:rgba(5,8,20,.82);backdrop-filter:blur(6px)}
 <script>
 const P=[
  {f:'order-flow',t:'Order Flow',b:'Beta',s:'In beta at a print shop in Mauritius. Built with Claude Code. Classification is rule-based SQL.',
-  c:'A busy print shop receives different types of requests via WhatsApp, in French, English and Kreol. This first step sorts requests by urgency and request type and creates a Kanban board for staff to update status. It also records them so history is available for analysis and further automation.',
+  c:'A busy print shop receives requests via WhatsApp in English, French or Kreol, sometimes combined in the same message. Requests also have different levels of urgency. The shop needed a more efficient way to track the status of each request.',
   x:['A Chrome extension captures messages from WhatsApp Web and sends them to n8n.','A 10-minute sweep keeps each chat on one card, in Postgres.','SQL rules sort new cards into Quote Request, Walk-in or Pick-up, in all three languages.','Staff work from a Kanban board and drag cards through the later stages.'],
   h:'Rules only touch new cards and never overwrite a stage a person set.',
   k:['Chrome Extension (MV3)','n8n','Postgres 16','SQL functions','Vanilla JS','Docker Compose','Traefik','Hostinger VPS','here.now']},
