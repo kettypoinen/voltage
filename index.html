@@ -228,7 +228,7 @@ dialog::backdrop{background:rgba(5,8,20,.82);backdrop-filter:blur(6px)}
 <script>
 const P=[
  {f:'order-flow',t:'Order Flow',b:'Beta',s:'In beta at a print shop in Mauritius. Built with Claude Code. Classification is rule-based SQL.',
-  c:'A busy print shop receives different types of requests via WhatsApp, in French, English and Kreol. This first step sorts requests by urgency and request type, and records them so the history is available for further automation at a later stage.',
+  c:'A busy print shop receives different types of requests via WhatsApp, in French, English and Kreol. This first step sorts requests by urgency and request type and creates a Kanban board for staff to update status. It also records them so history is available for analysis and further automation.',
   x:['A Chrome extension captures messages from WhatsApp Web and sends them to n8n.','A 10-minute sweep keeps each chat on one card, in Postgres.','SQL rules sort new cards into Quote Request, Walk-in or Pick-up, in all three languages.','Staff work from a Kanban board and drag cards through the later stages.'],
   h:'Rules only touch new cards and never overwrite a stage a person set.',
   k:['Chrome Extension (MV3)','n8n','Postgres 16','SQL functions','Vanilla JS','Docker Compose','Traefik','Hostinger VPS','here.now']},
