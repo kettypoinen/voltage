@@ -1,4 +1,4 @@
-# Ketty Poinen, built with Claude
+# Collection of my AI projects
 
 A one-page portfolio of AI systems built with Claude Code, prepared for Voltage Studios.
 
